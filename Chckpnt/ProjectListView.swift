@@ -1,5 +1,5 @@
 //
-//  ContentView.swift
+//  ProjectListView.swift
 //  Chckpnt
 //
 //  Created by Bern N on 12/25/23.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ContentView: View {
+struct ProjectListView: View {
     var body: some View {
         VStack {
             Image(systemName: "globe")
@@ -20,5 +20,5 @@ struct ContentView: View {
 }
 
 #Preview {
-    ContentView()
+    ProjectListView()
 }
