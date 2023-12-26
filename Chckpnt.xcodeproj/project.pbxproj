@@ -14,6 +14,8 @@
 		7C1741602B38A0F200C0F4F5 /* Project.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C17415F2B38A0F200C0F4F5 /* Project.swift */; };
 		7C1741622B38A1C700C0F4F5 /* ProjectUpdate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C1741612B38A1C700C0F4F5 /* ProjectUpdate.swift */; };
 		7C8727EE2B3B0253005F2FBB /* FontHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C8727ED2B3B0253005F2FBB /* FontHelper.swift */; };
+		7C8727F12B3B113C005F2FBB /* StatBubbleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C8727F02B3B113C005F2FBB /* StatBubbleView.swift */; };
+		7C8727F32B3B137B005F2FBB /* ProjectCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C8727F22B3B137B005F2FBB /* ProjectCardView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +27,8 @@
 		7C17415F2B38A0F200C0F4F5 /* Project.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Project.swift; sourceTree = "<group>"; };
 		7C1741612B38A1C700C0F4F5 /* ProjectUpdate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectUpdate.swift; sourceTree = "<group>"; };
 		7C8727ED2B3B0253005F2FBB /* FontHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontHelper.swift; sourceTree = "<group>"; };
+		7C8727F02B3B113C005F2FBB /* StatBubbleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatBubbleView.swift; sourceTree = "<group>"; };
+		7C8727F22B3B137B005F2FBB /* ProjectCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectCardView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +63,7 @@
 			children = (
 				7C8727EC2B3B023B005F2FBB /* Helpers */,
 				7C17415E2B38A0D200C0F4F5 /* Models */,
+				7C8727EF2B3B10F7005F2FBB /* Views */,
 				7C1741502B3895F800C0F4F5 /* ChckpntApp.swift */,
 				7C1741522B3895F800C0F4F5 /* ProjectListView.swift */,
 				7C1741542B3895F900C0F4F5 /* Assets.xcassets */,
@@ -90,6 +95,15 @@
 				7C8727ED2B3B0253005F2FBB /* FontHelper.swift */,
 			);
 			path = Helpers;
+			sourceTree = "<group>";
+		};
+		7C8727EF2B3B10F7005F2FBB /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				7C8727F02B3B113C005F2FBB /* StatBubbleView.swift */,
+				7C8727F22B3B137B005F2FBB /* ProjectCardView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -166,6 +180,8 @@
 				7C8727EE2B3B0253005F2FBB /* FontHelper.swift in Sources */,
 				7C1741532B3895F800C0F4F5 /* ProjectListView.swift in Sources */,
 				7C1741512B3895F800C0F4F5 /* ChckpntApp.swift in Sources */,
+				7C8727F12B3B113C005F2FBB /* StatBubbleView.swift in Sources */,
+				7C8727F32B3B137B005F2FBB /* ProjectCardView.swift in Sources */,
 				7C1741602B38A0F200C0F4F5 /* Project.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
