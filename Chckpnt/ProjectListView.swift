@@ -13,50 +13,57 @@ struct ProjectListView: View {
     @Query private var projects: [Project]
     
     var body: some View {
-        ZStack {
-            LinearGradient(
-                colors: [Color("Deep Purple"), Color("Blush Pink")],
-                startPoint: .top,
-                endPoint: .bottom
-            )
-                .ignoresSafeArea()
-            
-            VStack(alignment: .leading) {
-                Text("Projects")
-                    .font(.screenHeading)
-                    .foregroundStyle(.white)
+        NavigationStack {
+            ZStack {
+                LinearGradient(
+                    colors: [Color("Deep Purple"), Color("Blush Pink")],
+                    startPoint: .top,
+                    endPoint: .bottom
+                )
+                    .ignoresSafeArea()
                 
-                ScrollView {
-                    VStack(alignment: .leading, spacing: 26) {
-                        ForEach(projects) { project in
-                            ProjectCardView(project: project)
-                        }
-                    }
-                }
-                .scrollIndicators(.hidden)
-            }
-            .padding()
-            
-            VStack {
-                Spacer()
-                
-                HStack {
-                    Button {
-                        newProject = Project()
-                    } label: {
-                        ZStack {
-                            Circle()
-                                .frame(width: 65)
-                                .foregroundStyle(.black)
-                            
-                            Image("cross")
-                        }
-                    }
+                VStack(alignment: .leading) {
+                    Text("Projects")
+                        .font(.screenHeading)
+                        .foregroundStyle(.white)
                     
-                    Spacer()
+                    ScrollView {
+                        VStack(alignment: .leading, spacing: 26) {
+                            ForEach(projects) { project in
+                                NavigationLink {
+                                    ProjectDetailView(project: project)
+                                } label: {
+                                    ProjectCardView(project: project)
+                                }
+                                .buttonStyle(.plain)
+                            }
+                        }
+                    }
+                    .scrollIndicators(.hidden)
                 }
+                .padding()
+                
+                VStack {
+                    Spacer()
+                    
+                    HStack {
+                        Button {
+                            newProject = Project()
+                        } label: {
+                            ZStack {
+                                Circle()
+                                    .frame(width: 65)
+                                    .foregroundStyle(.black)
+                                
+                                Image("cross")
+                            }
+                        }
+                        
+                        Spacer()
+                    }
+                }
+                .padding(.leading)
             }
-            .padding(.leading)
         }
         .sheet(item: $newProject) { project in
             AddProjectView(project: project)
