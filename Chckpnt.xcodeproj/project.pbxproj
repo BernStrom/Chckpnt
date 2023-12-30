@@ -18,6 +18,7 @@
 		7C8727EE2B3B0253005F2FBB /* FontHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C8727ED2B3B0253005F2FBB /* FontHelper.swift */; };
 		7C8727F12B3B113C005F2FBB /* StatBubbleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C8727F02B3B113C005F2FBB /* StatBubbleView.swift */; };
 		7C8727F32B3B137B005F2FBB /* ProjectCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C8727F22B3B137B005F2FBB /* ProjectCardView.swift */; };
+		7C89AAB82B40BFA90066FF99 /* ProjectUpdateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C89AAB72B40BFA90066FF99 /* ProjectUpdateView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,6 +34,7 @@
 		7C8727ED2B3B0253005F2FBB /* FontHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontHelper.swift; sourceTree = "<group>"; };
 		7C8727F02B3B113C005F2FBB /* StatBubbleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatBubbleView.swift; sourceTree = "<group>"; };
 		7C8727F22B3B137B005F2FBB /* ProjectCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectCardView.swift; sourceTree = "<group>"; };
+		7C89AAB72B40BFA90066FF99 /* ProjectUpdateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectUpdateView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,6 +110,7 @@
 				7C8727F22B3B137B005F2FBB /* ProjectCardView.swift */,
 				7C596CA32B3C9610009C72A2 /* AddProjectView.swift */,
 				7C596CA52B3C9E45009C72A2 /* ProjectDetailView.swift */,
+				7C89AAB72B40BFA90066FF99 /* ProjectUpdateView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -189,6 +192,7 @@
 				7C1741532B3895F800C0F4F5 /* ProjectListView.swift in Sources */,
 				7C1741512B3895F800C0F4F5 /* ChckpntApp.swift in Sources */,
 				7C8727F12B3B113C005F2FBB /* StatBubbleView.swift in Sources */,
+				7C89AAB82B40BFA90066FF99 /* ProjectUpdateView.swift in Sources */,
 				7C8727F32B3B137B005F2FBB /* ProjectCardView.swift in Sources */,
 				7C1741602B38A0F200C0F4F5 /* Project.swift in Sources */,
 			);
