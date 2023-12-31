@@ -41,7 +41,7 @@ struct AddUpdateView: View {
                         update.headline = headline
                         update.summary = summary
                         update.hours = Double(hours)!
-                        project.updates.append(update)
+                        project.updates.insert(update, at: 0)
                         dismiss()
                     }
                     .buttonStyle(.borderedProminent)
