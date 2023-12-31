@@ -9,6 +9,9 @@ import SwiftUI
 
 struct ProjectDetailView: View {
     @Environment(\.dismiss) private var dismiss
+    
+    @State private var update: ProjectUpdate?
+    
     var project: Project
     
     var body: some View {
@@ -70,10 +73,9 @@ struct ProjectDetailView: View {
                 // MARK: - Project Updates
                 ScrollView {
                     VStack(spacing: 27) {
-                        ProjectUpdateView()
-                        ProjectUpdateView()
-                        ProjectUpdateView()
-                        ProjectUpdateView()
+                        ForEach(project.updates) { update in
+                            ProjectUpdateView(update: update)
+                        }
                     }
                     .padding()
                     .padding(.bottom, 80)
@@ -86,7 +88,7 @@ struct ProjectDetailView: View {
                 
                 HStack {
                     Button {
-                        // TODO: - Add new project button functionality
+                        update = ProjectUpdate()
                     } label: {
                         ZStack {
                             Circle()
@@ -117,6 +119,10 @@ struct ProjectDetailView: View {
             }
         }
         .navigationBarBackButtonHidden()
+        .sheet(item: $update) { update in
+            AddUpdateView(project: project, update: update)
+                .presentationDetents([.fraction(0.3)])
+        }
     }
 }
 
