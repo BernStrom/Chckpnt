@@ -23,12 +23,18 @@ struct ProjectUpdateView: View {
                     
                     Spacer()
                     
-                    Text("\(String(Int(update.hours))) Hours")
-                        .padding(.trailing)
+                    if update.updateType == .milestone {
+                        Image(systemName: "star.fill")
+                            .padding(.trailing)
+                            .foregroundStyle(.yellow)
+                    } else {
+                        Text("\(String(Int(update.hours))) Hours")
+                            .padding(.trailing)
+                    }
                 }
                 .padding(.vertical, 5)
                 .background {
-                    Color("Orchid")
+                    Color(update.updateType == .log ? "Orchid" : "Tiffany Teal")
                 }
                 
                 Text(update.headline)
