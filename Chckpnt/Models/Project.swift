@@ -17,6 +17,9 @@ class Project: Identifiable {
     var focus = ""
     @Relationship(deleteRule: .cascade, inverse: \ProjectUpdate.project)
     var updates = [ProjectUpdate]()
+    var hours: Double = 0
+    var sessions = 0
+    var wins = 0
     
     init() {
         id = UUID().uuidString
