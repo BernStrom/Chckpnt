@@ -44,13 +44,13 @@ struct ProjectDetailView: View {
                     HStack(alignment: .center, spacing: 13) {
                         Spacer()
                         
-                        StatBubbleView(title: "Hours", stat: String(project.hours), leadingColor: Color("Navy"), trailingColor: Color("Sky Blue"))
+                        StatBubbleView(title: "Hours", stat: project.hours, leadingColor: Color("Navy"), trailingColor: Color("Sky Blue"))
                         
-                        StatBubbleView(title: "Sessions", stat: String(project.sessions), leadingColor: Color("Turtle Green"), trailingColor: Color("Lime"))
+                        StatBubbleView(title: "Sessions", stat: Double(project.sessions), leadingColor: Color("Turtle Green"), trailingColor: Color("Lime"))
                         
-                        StatBubbleView(title: "Updates", stat: String(project.updates.count), leadingColor: Color("Maroon"), trailingColor: Color("Fuschia"))
+                        StatBubbleView(title: "Updates", stat: Double(project.updates.count), leadingColor: Color("Maroon"), trailingColor: Color("Fuschia"))
                         
-                        StatBubbleView(title: "Wins", stat: String(project.wins), leadingColor: Color("Maroon"), trailingColor: Color("Olive"))
+                        StatBubbleView(title: "Wins", stat: Double(project.wins), leadingColor: Color("Maroon"), trailingColor: Color("Olive"))
                         
                         Spacer()
                     }
@@ -85,22 +85,42 @@ struct ProjectDetailView: View {
                         .ignoresSafeArea()
                 }
                 // MARK: - Project Updates
-                ScrollView {
-                    VStack(spacing: 27) {
-                        ForEach(project.updates.sorted(by: { updateOne, updateTwo in
-                            updateOne.date > updateTwo.date
-                        })) { update in
-                            ProjectUpdateView(update: update)
-                                .onTapGesture {}
-                                .onLongPressGesture {
-                                    newProjectUpdate = update
-                                }
+                if project.updates.count > 0 {
+                    ScrollView {
+                        VStack(spacing: 27) {
+                            ForEach(project.updates.sorted(by: { updateOne, updateTwo in
+                                updateOne.date > updateTwo.date
+                            })) { update in
+                                ProjectUpdateView(update: update)
+                                    .onTapGesture {}
+                                    .onLongPressGesture {
+                                        newProjectUpdate = update
+                                    }
+                            }
                         }
+                        .padding()
+                        .padding(.bottom, 80)
                     }
-                    .padding()
-                    .padding(.bottom, 80)
+                    .scrollIndicators(.hidden)
+                } else {
+                    // Display a button prompt to the user for adding new project updates
+                    Spacer()
+                    
+                    HStack {
+                        Spacer()
+                        
+                        Button("Tap to add new project update(s)") {
+                            newProjectUpdate = ProjectUpdate()
+                        }
+                        .buttonStyle(.bordered)
+                        .foregroundStyle(.white)
+                        .padding(.bottom, 100)
+                        
+                        Spacer()
+                    }
+                    
+                    Spacer()
                 }
-                .scrollIndicators(.hidden)
             }
             // MARK: - Footer Buttons
             VStack {

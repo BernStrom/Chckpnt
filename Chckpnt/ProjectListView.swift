@@ -29,20 +29,41 @@ struct ProjectListView: View {
                         .font(.screenHeading)
                         .foregroundStyle(.white)
                     
-                    ScrollView {
-                        VStack(alignment: .leading, spacing: 26) {
-                            ForEach(projects) { project in
-                                ProjectCardView(project: project)
-                                    .onTapGesture {
-                                        selectedProject = project
-                                    }
-                                    .onLongPressGesture {
-                                        newProject = project
-                                    }
+                    if projects.count > 0 {
+                        // Shows a list of project(s) if there are any
+                        ScrollView {
+                            VStack(alignment: .leading, spacing: 26) {
+                                ForEach(projects) { project in
+                                    ProjectCardView(project: project)
+                                        .onTapGesture {
+                                            selectedProject = project
+                                        }
+                                        .onLongPressGesture {
+                                            newProject = project
+                                        }
+                                }
                             }
                         }
+                        .scrollIndicators(.hidden)
+                    } else {
+                        // Display a button prompt to the user for adding a new project
+                        Spacer()
+                        
+                        HStack {
+                            Spacer()
+                            
+                            Button("Tap to add a new project") {
+                                newProject = Project()
+                            }
+                            .buttonStyle(.bordered)
+                            .foregroundStyle(.white)
+                            
+                            Spacer()
+                        }
+                        
+                        Spacer()
                     }
-                    .scrollIndicators(.hidden)
+                    
                 }
                 .padding()
                 

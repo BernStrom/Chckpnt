@@ -39,6 +39,9 @@ struct EditUpdateView: View {
                     TextField("Hours", text: $hours)
                         .keyboardType(.numberPad)
                         .frame(width: 60)
+                        .onChange(of: hours) { oldValue, newValue in
+                            hours = TextHelper.limitCharacters(input: hours, limit: 2)
+                        }
                    
                     Button(isEditMode ? "Save" : "Add") {
                         // Calculates the hours difference to the current sum while editing the number of hours worked on the project
@@ -66,6 +69,7 @@ struct EditUpdateView: View {
                     }
                     .buttonStyle(.borderedProminent)
                     .tint(.blue)
+                    .disabled(shouldDisable())
                     
                     if isEditMode {
                         Button("Delete") {
@@ -103,6 +107,10 @@ struct EditUpdateView: View {
             summary = update.summary
             hours = String(Int(update.hours))
         }
+    }
+    
+    private func shouldDisable() -> Bool {
+        return headline.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty || summary.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty || hours.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty
     }
 }
 
