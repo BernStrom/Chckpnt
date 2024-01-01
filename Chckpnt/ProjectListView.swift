@@ -9,8 +9,10 @@ import SwiftUI
 import SwiftData
 
 struct ProjectListView: View {
-    @State private var newProject: Project?
     @Query private var projects: [Project]
+    
+    @State private var newProject: Project?
+    @State private var showProjectDetail = false
     
     var body: some View {
         NavigationStack {
@@ -30,15 +32,16 @@ struct ProjectListView: View {
                     ScrollView {
                         VStack(alignment: .leading, spacing: 26) {
                             ForEach(projects) { project in
-                                NavigationLink {
-                                    ProjectDetailView(project: project)
-                                } label: {
-                                    ProjectCardView(project: project)
-                                        .onLongPressGesture {
-                                            newProject = project
-                                        }
-                                }
-                                .buttonStyle(.plain)
+                                ProjectCardView(project: project)
+                                    .onTapGesture {
+                                        showProjectDetail = true
+                                    }
+                                    .onLongPressGesture {
+                                        newProject = project
+                                    }
+                                    .navigationDestination(isPresented: $showProjectDetail) {
+                                        ProjectDetailView(project: project)
+                                    }
                             }
                         }
                     }
