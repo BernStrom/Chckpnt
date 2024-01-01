@@ -41,7 +41,8 @@ struct EditUpdateView: View {
                         .frame(width: 60)
                    
                     Button(isEditMode ? "Save" : "Add") {
-                        let hoursDifference = update.hours - Double(hours)!
+                        // Calculates the hours difference to the current sum while editing the number of hours worked on the project
+                        let hoursDifference = Double(hours)! - update.hours
                         
                         update.headline = headline
                         update.summary = summary
