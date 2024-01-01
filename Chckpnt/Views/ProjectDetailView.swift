@@ -6,8 +6,10 @@
 //
 
 import SwiftUI
+import SwiftData
 
 struct ProjectDetailView: View {
+    @Environment(\.modelContext) private var context
     @Environment(\.dismiss) private var dismiss
     
     @State private var newProjectUpdate: ProjectUpdate?
@@ -42,13 +44,13 @@ struct ProjectDetailView: View {
                     HStack(alignment: .center, spacing: 13) {
                         Spacer()
                         
-                        StatBubbleView(title: "Hours", stat: "290", leadingColor: Color("Navy"), trailingColor: Color("Sky Blue"))
+                        StatBubbleView(title: "Hours", stat: String(project.hours), leadingColor: Color("Navy"), trailingColor: Color("Sky Blue"))
                         
-                        StatBubbleView(title: "Sessions", stat: "34", leadingColor: Color("Turtle Green"), trailingColor: Color("Lime"))
+                        StatBubbleView(title: "Sessions", stat: String(project.sessions), leadingColor: Color("Turtle Green"), trailingColor: Color("Lime"))
                         
-                        StatBubbleView(title: "Updates", stat: "32", leadingColor: Color("Maroon"), trailingColor: Color("Fuschia"))
+                        StatBubbleView(title: "Updates", stat: String(project.updates.count), leadingColor: Color("Maroon"), trailingColor: Color("Fuschia"))
                         
-                        StatBubbleView(title: "Wins", stat: "9", leadingColor: Color("Maroon"), trailingColor: Color("Olive"))
+                        StatBubbleView(title: "Wins", stat: String(project.wins), leadingColor: Color("Maroon"), trailingColor: Color("Olive"))
                         
                         Spacer()
                     }
@@ -156,6 +158,11 @@ struct ProjectDetailView: View {
         update.headline = "Milestone Achieved"
         update.summary = project.focus
         project.updates.insert(update, at: 0)
+        
+        // Force a manual save to SwiftData
+        try? context.save()
+        
+        StatsHelper.updateAdded(project: project, update: update)
         
         // Clears the project focus
         project.focus = ""
