@@ -34,6 +34,9 @@ struct ProjectListView: View {
                                     ProjectDetailView(project: project)
                                 } label: {
                                     ProjectCardView(project: project)
+                                        .onLongPressGesture {
+                                            newProject = project
+                                        }
                                 }
                                 .buttonStyle(.plain)
                             }
@@ -66,7 +69,9 @@ struct ProjectListView: View {
             }
         }
         .sheet(item: $newProject) { project in
-            AddProjectView(project: project)
+            let isEdit = project.name.trimmingCharacters(in: .whitespacesAndNewlines) != ""
+            
+            EditProjectView(project: project, isEditMode: isEdit)
                 .presentationDetents([.fraction(0.2)])
         }
     }
