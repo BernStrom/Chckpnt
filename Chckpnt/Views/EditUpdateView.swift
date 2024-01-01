@@ -52,17 +52,21 @@ struct EditUpdateView: View {
                         update.hours = Double(hours)!
                         
                         if !isEditMode {
-                            // Add project update
-                            project.updates.insert(update, at: 0)
-                            
-                            // Force a manual save to SwiftData
-                            try? context.save()
-                            
-                            // Update project stats
-                            StatsHelper.updateAdded(project: project, update: update)
+                            withAnimation {
+                                // Add project update
+                                project.updates.insert(update, at: 0)
+                                
+                                // Force a manual save to SwiftData
+                                try? context.save()
+                                
+                                // Update project stats
+                                StatsHelper.updateAdded(project: project, update: update)
+                            }
                         } else {
-                            // Edit project update & update project stats
-                            StatsHelper.updateEdited(project: project, hoursDifference: hoursDifference)
+                            withAnimation {
+                                // Edit project update & update project stats
+                                StatsHelper.updateEdited(project: project, hoursDifference: hoursDifference)
+                            }
                         }
                         
                         dismiss()
@@ -88,16 +92,18 @@ struct EditUpdateView: View {
         }
         .confirmationDialog("Delete project update?", isPresented: $showDeleteConfirmation) {
             Button("Yes, delete it") {
-                // Remove updates from the project with the same id
-                project.updates.removeAll { uniqueIdentifier in
-                    uniqueIdentifier.id == update.id
+                withAnimation {
+                    // Remove updates from the project with the same id
+                    project.updates.removeAll { uniqueIdentifier in
+                        uniqueIdentifier.id == update.id
+                    }
+                    
+                    // Force a manual save to SwiftData
+                    try? context.save()
+                    
+                    // Delete project stats from the deleted update
+                    StatsHelper.updateDeleted(project: project, update: update)
                 }
-                
-                // Force a manual save to SwiftData
-                try? context.save()
-                
-                // Delete project stats from the deleted update
-                StatsHelper.updateDeleted(project: project, update: update)
                 
                 dismiss()
             }
