@@ -23,6 +23,7 @@
 		7C9787702B41D58600CED644 /* DateHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C97876F2B41D58600CED644 /* DateHelper.swift */; };
 		7C9787722B41DB9B00CED644 /* EditFocusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C9787712B41DB9B00CED644 /* EditFocusView.swift */; };
 		7CF4272B2B43377D00CC18B4 /* StatsHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CF4272A2B43377D00CC18B4 /* StatsHelper.swift */; };
+		7CF4272D2B4346B100CC18B4 /* TextHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CF4272C2B4346B100CC18B4 /* TextHelper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,6 +44,7 @@
 		7C97876F2B41D58600CED644 /* DateHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateHelper.swift; sourceTree = "<group>"; };
 		7C9787712B41DB9B00CED644 /* EditFocusView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditFocusView.swift; sourceTree = "<group>"; };
 		7CF4272A2B43377D00CC18B4 /* StatsHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsHelper.swift; sourceTree = "<group>"; };
+		7CF4272C2B4346B100CC18B4 /* TextHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextHelper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +111,7 @@
 				7C8727ED2B3B0253005F2FBB /* FontHelper.swift */,
 				7C97876F2B41D58600CED644 /* DateHelper.swift */,
 				7CF4272A2B43377D00CC18B4 /* StatsHelper.swift */,
+				7CF4272C2B4346B100CC18B4 /* TextHelper.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -204,6 +207,7 @@
 				7C596CA42B3C9610009C72A2 /* EditProjectView.swift in Sources */,
 				7C1741532B3895F800C0F4F5 /* ProjectListView.swift in Sources */,
 				7C1741512B3895F800C0F4F5 /* ChckpntApp.swift in Sources */,
+				7CF4272D2B4346B100CC18B4 /* TextHelper.swift in Sources */,
 				7CF4272B2B43377D00CC18B4 /* StatsHelper.swift in Sources */,
 				7C8727F12B3B113C005F2FBB /* StatBubbleView.swift in Sources */,
 				7C89AAB82B40BFA90066FF99 /* ProjectUpdateView.swift in Sources */,
